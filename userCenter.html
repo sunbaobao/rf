@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery.min.js"></script>
+    <title>用户中心</title>
+</head>
+<body>
+<header class="clearfix">
+    <div class="w-max ct">
+        <div class="logo fl">
+            <h1>日发金融</h1>
+        </div>
+        <div class="right fr login">
+            <a href="#" class="">修改密码</a>
+            <a href="#" class="">退出</a>
+        </div>
+    </div>
+</header>
+<div class="loginContent">
+    <div class="w-max ct clearfix">
+        <div class="left fl">
+            <p>会员中心</p>
+            <ul>
+                <li class="active"><a href="#">账户信息</a></li>
+                <li><a href="#">充值记录</a></li>
+                <li><a href="#">提现记录</a></li>
+            </ul>
+        </div>
+        <div class="list">
+            <div class="right fr clearfix">
+                <div class="rightLeft fl">
+                    <div class="balance">
+                        <p>账户余额<br> <span>$ 0.00 </span></p>
+                    </div>
+                </div>
+                <div class="rightRight fl">
+                    <div class="inputW">
+                        <span>账号：</span>
+                        <p> 2101685555</p>
+                    </div>
+                    <div class="inputW">
+                        <span>姓名：</span>
+                        <input type="text" name="name">
+                    </div>
+                    <div class="inputW">
+                        <span>身份证号：</span>
+                        <input type="tel" name="">
+                    </div>
+                    <div class="inputW">
+                        <span>银行账号：</span>
+                        <input type="tel" name="">
+                    </div>
+                    <div class="inputW">
+                        <span>银行预留手机号：</span>
+                        <input type="tel" name="">
+                    </div>
+                </div>
+                <div class="bottom">
+                    <p>金额（美金）：</p>
+                    <input type="text" id="limit">
+                    <div class="button cz">充值</div>
+                    <div class="button tx">提现</div>
+                    <div class="button decz">大额充值</div>
+                </div>
+            </div>
+            <div class="tips">
+                <h6>温馨提示</h6>
+                <p>1.出入金银期转账汇率1美金兑7.2元人民币，超出本金外的部分按即时汇率结算。（人民币兑美金汇率出现较大波动时另行调整）<br>
+                    2.出入金时间：全天随时入金，出金时间截止每日下午4：30。（非节假日2小时内到账，节假日顺延到工作日到账）<br>
+                    3.左侧银行卡信息一经充值成功即与您的账号绑定，不可更改，若卡片遗失或到期确需更改，请联系您的经纪人。</p>
+            </div>
+        </div>
+        <div class="list">
+            <div class="right fr clearfix">
+                <div class="head">
+                    充值记录
+                </div>
+                <div class="listC">
+                    <div class="listRow listRowH clearfix ">
+                        <div class="w15">时间</div>
+                        <div class="w10">姓名</div>
+                        <div class="w15">金额</div>
+                        <div class="w25">交易号</div>
+                        <div class="w15">状态</div>
+                    </div>
+                    <div class="listRow clearfix ">
+                        <div class="w15">2017-04-06 14:16 </div>
+                        <div class="w10">董政磊</div>
+                        <div class="w15">$100.00 </div>
+                        <div class="w25">20170406141622619974</div>
+                        <div class="w15 success"><span>充值成功</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                1/1
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <p class="tac">Copyright©2016日发国际金融有限公司. 沪ICP备12046937号.<br>
+        The content contained on this site is provided to users "AS IS" without any expressor implied warrantly.
+    </p>
+</footer>
+</body>
+<script>
+    $(function () {
+        $(".content").css("minHeight", window.innerHeight - 110 - 88);
+        $(".loginContent").css("minHeight", window.innerHeight - 110 - 88);
+    })
+</script>
+</html>

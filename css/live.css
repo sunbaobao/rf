@@ -1,0 +1,425 @@
+.top {
+  height: 82px;
+  border-bottom: 2px solid #333748;
+  background-color: #0e1424; }
+  .top h1 {
+    width: 245px;
+    height: 80px;
+    background: url("../images/logoml.png") no-repeat center;
+    text-indent: -999px; }
+  .top .hr {
+    width: 2px;
+    height: 50px;
+    background-color: #333748;
+    display: block;
+    float: left;
+    margin-top: 14px; }
+  .top ul > li {
+    float: left; }
+    .top ul > li:hover, .top ul > li.active {
+      background-color: #2c3147; }
+    .top ul > li a {
+      display: block;
+      width: 144px;
+      height: 80px;
+      color: #ffffff;
+      font-size: 0;
+      text-align: center; }
+      .top ul > li a:after {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: 0; }
+      .top ul > li a span {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: url("../images/calendar.png") no-repeat center;
+        vertical-align: middle;
+        background-size: contain; }
+        .top ul > li a span.img2 {
+          background-image: url("../images/desktop.png"); }
+        .top ul > li a span.img3 {
+          background-image: url("../images/link.png"); }
+        .top ul > li a span.img4 {
+          background-image: url("../images/course.png"); }
+        .top ul > li a span.img5 {
+          background-image: url("../images/open-an-account.png"); }
+        .top ul > li a span.img6 {
+          background-image: url("../images/QQ (4).png"); }
+      .top ul > li a p {
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 30px;
+        vertical-align: middle; }
+  .top .login {
+    padding-top: 25px; }
+    .top .login a {
+      display: block;
+      float: left;
+      width: 72px;
+      height: 32px;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 32px;
+      -webkit-transition: all 0.4s;
+      -moz-transition: all 0.4s;
+      -ms-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      transition: all 0.4s;
+      background-color: #275fb4;
+      text-align: center;
+      margin: 0 11px; }
+      .top .login a.l {
+        background-color: #c8191e; }
+      .top .login a.l:hover {
+        background-color: #f01e24; }
+      .top .login a:hover {
+        background-color: #2f72d8;
+        transform: translateY(-10px); }
+
+.content {
+  position: absolute;
+  width: 100%;
+  min-width: 1200px;
+  padding: 24px 11px;
+  background-color: #020d1f; }
+  .content .scroll_bar {
+    position: absolute;
+    right: 3px;
+    top: 0;
+    height: 100%;
+    width: 4px; }
+    .content .scroll_bar span {
+      position: absolute;
+      width: 5px;
+      height: 20px;
+      top: 15px;
+      left: 0;
+      background-color: #a7b3bb;
+      border-radius: 8px; }
+  .content .left {
+    width: 757px; }
+    .content .left > div {
+      border: 1px solid #3c4156;
+      width: 100%; }
+    .content .left .liveC {
+      height: 490px; }
+      .content .left .liveC p:first-child {
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 30px;
+        text-indent: 1em;
+        background-color: #2c3147; }
+      .content .left .liveC .wrap {
+        height: 458px;
+        width: 100%;
+        border-top: 1px solid #3c4156; }
+    .content .left .lecturer > p {
+      font-size: 16px;
+      color: #ffffff;
+      line-height: 30px;
+      text-indent: 1em;
+      background-color: #2c3147; }
+    .content .left .lecturer .lecturerWrap {
+      border-top: 1px solid #32343e; }
+      .content .left .lecturer .lecturerWrap .lecturerNav {
+        padding: 16px 18px; }
+        .content .left .lecturer .lecturerWrap .lecturerNav .item {
+          height: 28px;
+          padding: 0 10px;
+          font-size: 14px;
+          color: #ffffff;
+          line-height: 28px;
+          background-color: #2c3147;
+          margin-right: 8px;
+          float: left;
+          position: relative;
+          cursor: pointer; }
+          .content .left .lecturer .lecturerWrap .lecturerNav .item.active {
+            background-color: #51678d; }
+            .content .left .lecturer .lecturerWrap .lecturerNav .item.active:after {
+              content: "";
+              display: block;
+              position: absolute;
+              border-top: 7px solid #51678d;
+              border-left: 7px solid transparent;
+              border-right: 7px solid transparent;
+              bottom: -7px;
+              left: 50%;
+              margin-left: -7px; }
+      .content .left .lecturer .lecturerWrap .lecturerTabC {
+        padding: 25px; }
+        .content .left .lecturer .lecturerWrap .lecturerTabC .item {
+          display: none; }
+        .content .left .lecturer .lecturerWrap .lecturerTabC p {
+          font-size: 14px;
+          color: #e3e3e3;
+          line-height: 29px; }
+          .content .left .lecturer .lecturerWrap .lecturerTabC p span {
+            color: #efc915; }
+  .content .right {
+    width: 254px;
+    position: absolute;
+    right: 12px;
+    top: 24px;
+    bottom: 0px; }
+    .content .right > p {
+      width: 100%;
+      border: 1px solid #3c4156;
+      background-color: #212737;
+      height: 50px;
+      color: #ffffff;
+      line-height: 48px;
+      text-align: center;
+      margin-bottom: 1px;
+      font-size: 18px; }
+    .content .right .onlineWrap {
+      position: absolute;
+      bottom: 267px;
+      top: 51px;
+      border: 1px solid #3c4156;
+      width: 100%;
+      background-color: #2c3147;
+      padding-top: 15px;
+      padding-bottom: 15px; }
+      .content .right .onlineWrap .onlineList {
+        width: 277px;
+        padding-right: 17px;
+        overflow-y: scroll;
+        height: 100%; }
+        .content .right .onlineWrap .onlineList .onlineItem {
+          padding-left: 16px;
+          overflow: hidden; }
+          .content .right .onlineWrap .onlineList .onlineItem.hover {
+            background-color: #0e1424; }
+            .content .right .onlineWrap .onlineList .onlineItem.hover .option {
+              display: block; }
+          .content .right .onlineWrap .onlineList .onlineItem .onlineIteLeft span {
+            display: inline-block;
+            vertical-align: middle;
+            height: 42px;
+            width: 30px;
+            background: url("../images/auto.png") no-repeat center;
+            margin-right: 5px;
+            background-size: contain; }
+          .content .right .onlineWrap .onlineList .onlineItem .onlineIteLeft p {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 14px;
+            color: #ffffff;
+            line-height: 42px;
+            max-width: 120px;
+            text-overflow: ellipsis;
+            white-space: nowrap; }
+          .content .right .onlineWrap .onlineList .onlineItem .lv {
+            height: 42px;
+            width: 60px;
+            background: url("../images/group3.png") no-repeat center; }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.super {
+              background-image: url("../images/admin1.png"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv1 {
+              background-image: url("../images/lv/1.gif"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv2 {
+              background-image: url("../images/lv/2.gif"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv3 {
+              background-image: url("../images/lv/3.gif"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv4 {
+              background-image: url("../images/lv/4.gif"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv5 {
+              background-image: url("../images/lv/5.gif"); }
+          .content .right .onlineWrap .onlineList .onlineItem .option {
+            width: 100%;
+            text-align: left;
+            float: left;
+            font-size: 0;
+            display: none; }
+            .content .right .onlineWrap .onlineList .onlineItem .option p {
+              display: inline-block;
+              color: #ffffff;
+              font-size: 14px;
+              margin-right: 5px;
+              line-height: 1.5;
+              cursor: pointer;
+              user-select: none; }
+    .content .right .maW {
+      position: absolute;
+      bottom: 24px;
+      left: 0;
+      margin-top: 10px;
+      width: 254px;
+      height: 222px;
+      font-size: 0;
+      border: 1px solid #3c4156;
+      background-color: #2c3147;
+      text-align: center; }
+      .content .right .maW:after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 0;
+        vertical-align: middle; }
+      .content .right .maW .ma {
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        /*width: 100%;
+        height: 100%;*/ }
+        .content .right .maW .ma p {
+          font-size: 14px;
+          color: #ffffff;
+          margin-top: 20px; }
+  .content .center {
+    margin-left: 775px;
+    margin-right: 265px; }
+    .content .center .centerC .notice {
+      background-color: #2c3147;
+      height: 30px; }
+      .content .center .centerC .notice .noticeLeft {
+        width: 90px;
+        height: 30px;
+        font-size: 16px;
+        color: #ffffff;
+        text-align: center; }
+        .content .center .centerC .notice .noticeLeft:before {
+          content: "";
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          background: url("../images/lb.png") no-repeat center;
+          vertical-align: middle; }
+      .content .center .centerC .notice .noticeRight {
+        margin-left: 90px;
+        overflow: hidden;
+        height: 30px; }
+        .content .center .centerC .notice .noticeRight marquee {
+          font-size: 14px;
+          color: #e90f0f;
+          line-height: 30px;
+          font-weight: bold; }
+    .content .center .centerC .chatW {
+      position: relative; }
+      .content .center .centerC .chatW .chatC {
+        border: 1px solid #3c4156;
+        padding: 13px;
+        overflow: hidden; }
+        .content .center .centerC .chatW .chatC .chatListW {
+          overflow-y: scroll;
+          margin-right: -30px;
+          padding-right: 30px;
+          height: 100%; }
+          .content .center .centerC .chatW .chatC .chatListW .onlineItem {
+            font-size: 0; }
+            .content .center .centerC .chatW .chatC .chatListW .onlineItem.super .userInfo .name {
+              color: #ff0000;
+              background-color: #ffff00; }
+            .content .center .centerC .chatW .chatC .chatListW .onlineItem.super .messages p {
+              color: #c00; }
+            .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo {
+              display: inline-block;
+              vertical-align: middle; }
+              .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo span {
+                font-size: 14px;
+                color: #ffffff;
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 30px;
+                margin: 10px 5px;
+                height: 30px; }
+                .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo span.name {
+                  margin: 10px 0;
+                  padding: 0 5px;
+                  border-radius: 4px; }
+              .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo .lv {
+                vertical-align: middle;
+                margin: 10px 5px; }
+            .content .center .centerC .chatW .chatC .chatListW .onlineItem .messages {
+              display: inline-block;
+              vertical-align: middle;
+              margin-left: 5px; }
+              .content .center .centerC .chatW .chatC .chatListW .onlineItem .messages p {
+                padding: 5px 10px;
+                background-color: #dddddd;
+                color: #000;
+                line-height: 1.3;
+                font-size: 14px;
+                border-radius: 5px; }
+      .content .center .centerC .chatW .chatInput {
+        width: 100%;
+        border: 1px solid #3c4156;
+        background-color: #2c3147;
+        padding: 12px;
+        position: absolute;
+        bottom: 0;
+        left: 0; }
+        .content .center .centerC .chatW .chatInput .menu ul {
+          overflow: hidden; }
+          .content .center .centerC .chatW .chatInput .menu ul li {
+            float: left;
+            width: 66px;
+            height: 22px;
+            font-size: 0;
+            text-align: center;
+            background-color: #3c4353;
+            margin-right: 10px;
+            cursor: pointer; }
+            .content .center .centerC .chatW .chatInput .menu ul li.flag {
+              background-color: #e64300; }
+            .content .center .centerC .chatW .chatInput .menu ul li span {
+              display: inline-block;
+              width: 18px;
+              height: 22px;
+              background: url("../images/listIcon_03.jpg") no-repeat center;
+              vertical-align: middle;
+              margin-right: 6px; }
+              .content .center .centerC .chatW .chatInput .menu ul li span.ListIcon2 {
+                background-image: url("../images/listIcon_05.jpg"); }
+              .content .center .centerC .chatW .chatInput .menu ul li span.ListIcon3 {
+                background-image: url("../images/listIcon_07.jpg"); }
+            .content .center .centerC .chatW .chatInput .menu ul li p {
+              display: inline-block;
+              color: #ffffff;
+              font-size: 12px;
+              line-height: 22px;
+              vertical-align: middle; }
+        .content .center .centerC .chatW .chatInput .chatInput_input {
+          overflow: hidden;
+          margin-top: 10px; }
+          .content .center .centerC .chatW .chatInput .chatInput_input .meg_input {
+            height: 83px;
+            overflow: hidden; }
+            .content .center .centerC .chatW .chatInput .chatInput_input .meg_input textarea {
+              width: 100%;
+              height: 70px;
+              padding: 5px;
+              resize: none;
+              font-size: 14px; }
+          .content .center .centerC .chatW .chatInput .chatInput_input .input_send {
+            background-color: #26a0df;
+            color: #ffffff;
+            font-size: 0;
+            width: 130px;
+            height: 70px;
+            float: right;
+            text-align: center;
+            cursor: pointer; }
+            .content .center .centerC .chatW .chatInput .chatInput_input .input_send:before {
+              content: "";
+              display: inline-block;
+              width: 40px;
+              height: 40px;
+              background: url("../images/send_msg_03.jpg") no-repeat center;
+              vertical-align: middle; }
+            .content .center .centerC .chatW .chatInput .chatInput_input .input_send:after {
+              content: "";
+              display: inline-block;
+              vertical-align: middle;
+              width: 0;
+              height: 100%; }
+            .content .center .centerC .chatW .chatInput .chatInput_input .input_send p {
+              font-size: 24px;
+              display: inline-block;
+              vertical-align: middle; }
+
+/*# sourceMappingURL=live.css.map */

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/userCenterML.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/cropper.min.js"></script>
+    <link rel="stylesheet" href="css/cropper.min.css">
+    <title>Title</title>
+</head>
+<body>
+<div class="top clearfix">
+    <!--<div class=""></div>-->
+    <h1>
+        <img src="images/logoml.png" alt="">
+    </h1>
+    <p>用户中心</p>
+</div>
+<div class="content">
+    <div class="left fl">
+        <ul>
+            <li class="active"><a href="#">修改资料</a></li>
+            <li><a href="#">安全设置</a></li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="list">
+            <div class="RNav">
+                <p>当前位置：用户中心>修改资料</p>
+            </div>
+            <div class="RContent">
+                <div class="inputW">
+                    <span>旧密码：</span>
+                    <input type="password" placeholder="">
+                </div>
+                <div class="inputW">
+                    <span>新密码：</span>
+                    <input type="password" placeholder="">
+                </div>
+                <div class="inputW">
+                    <span>密码确认：</span>
+                    <input type="password" placeholder="">
+                </div>
+                <div class="submit">
+                    <input type="submit" value="保存">
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="RNav">
+                <p>当前位置：用户中心>修改资料</p>
+            </div>
+            <div class="RContent">
+                <div class="canvas">
+                    <canvas></canvas>
+                    <div class="confirm">
+                        <p class="ok">确定</p>
+                        <p class="cancel">取消</p>
+                    </div>
+                </div>
+                <div class="inputW">
+                    <span>昵称：</span>
+                    <input type="text" placeholder="">
+                </div>
+                <div class="inputW">
+                    <span>头像：</span>
+                    <label for="avatar"><img src="images/avatar.png" alt="" id="credentialsImg"> <img src="" alt=""
+                                                                                                      id="test"
+                                                                                                      style="display: none;"><span>修改</span><input
+                            type="file" id="avatar"></label>
+                </div>
+                <div class="inputW">
+                    <span class="vertical">性别：</span>
+                    <label for="boy"> <input type="radio" placeholder="" id="boy" name="sex" class="vertical"><span class="mr20 vertical c3c">男</span></label>
+                    <label for="girl"> <input type="radio" placeholder="" id="girl" name="sex" class="vertical"><span class="mr20 vertical c3c">女</span></label>
+                </div>
+                <div class="inputW">
+                    <span>昵称：</span>
+                    <select name="12">
+                        <option value="省份">省份</option>
+                        <option value="省份">省份1</option>
+                        <option value="省份">省份2</option>
+                    </select>
+                    <select name="22">
+                        <option value="省份">城市</option>
+                        <option value="省份">城市2</option>
+                        <option value="省份">城市1</option>
+                    </select>
+                </div>
+                <div class="inputW">
+                    <span class="vertical">投资分析法：</span>
+                    <label for="technology"> <input type="radio" placeholder="" id="technology" name="way" class="vertical"><span class="mr20 vertical c3c">技术面</span></label>
+                    <label for="base"> <input type="radio" placeholder="" id="base" name="way" class="vertical"><span class="mr20 vertical c3c">基本面</span></label>
+                </div>
+                <div class="inputW">
+                    <span class="vertical">投资方向：</span>
+                    <label for="direction1"> <input type="checkbox" placeholder="" id="direction1"  class="vertical"><span class="mr20 vertical c3c">股票</span></label>
+                    <label for="direction2"> <input type="checkbox" placeholder="" id="direction2"  class="vertical"><span class="mr20 vertical c3c">期货</span></label>
+                    <label for="direction3"> <input type="checkbox" placeholder="" id="direction3"  class="vertical"><span class="mr20 vertical c3c">外汇</span></label>
+                    <label for="direction4"> <input type="checkbox" placeholder="" id="direction4"  class="vertical"><span class="mr20 vertical c3c">贵金属</span></label>
+                    <label for="direction5"> <input type="checkbox" placeholder="" id="direction5"  class="vertical"><span class="mr20 vertical c3c">商品现货</span></label>
+                    <label for="direction6"> <input type="checkbox" placeholder="" id="direction6"  class="vertical"><span class="mr20 vertical c3c">农产品</span></label>
+                </div>
+                <div class="inputW">
+                    <span>个性签名：</span>
+                    <input type="text" placeholder="">
+                </div>
+                <div class="submit">
+                    <input type="submit" value="保存">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        var cropOptions = {};
+//        var img = $("#test");
+        var maxWidth = 1200;
+        var cro;
+        $("#avatar").on("change", function () {
+            if (!this.value) return;
+            var file = this.files[0];
+            var reader = new FileReader();
+            if (file.type.split("/")[0] !== "image") {
+                alert("请选择图片");
+                return;
+            }
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                $("#credentialsImg").attr("src", reader.result);
+//                $("#test").attr("src", reader.result);
+                var img1 = new Image();
+                img1.src = reader.result;
+
+                $(img1).on("load", function () {
+                    clipImg(this);
+                });
+//                console.log(reader);
+            };
+            function clipImg(img) {
+//                var img=$("#t;
+                $(".canvas").css("display", "block");
+                var cvs = $(".canvas canvas")[0];
+
+                var width = img.naturalWidth, height = img.naturalHeight, imgRatio = width / height;
+                //如果图片维度超过了给定的maxWidth 1500，
+//为了保持图片宽高比，计算画布的大小
+                if (width > maxWidth) {
+                    width = maxWidth;
+                    height = width / imgRatio;
+                }
+                cvs.width = width;
+                cvs.height = height;
+                //把大图片画到一个小画布
+                var ctx = cvs.getContext("2d");
+                var destX = 0,
+                    destY = 0;
+                ctx.drawImage(img, destX, destY);
+                if (cro) {
+                    $(cvs).cropper("destroy");
+                }
+                cro = $(cvs).cropper({
+                    aspectRatio: 9 / 9,
+                    zoomOnWheel: false,
+                    crop: function (e) {
+                        // Output the result data for cropping image.
+//                        cropOptions.extend(e);
+                        $.extend(cropOptions, e);
+                        /*cropOptions.x = e.x;
+                         cropOptions.y = e.y;
+                         cropOptions.width = e.width;
+                         cropOptions.height = e.height;*/
+
+                        /* console.log("x", e.x);
+                         console.log("y", e.y);
+                         console.log("width", e.width);
+                         console.log("height", e.height);
+                         console.log(e.rotate);
+                         console.log(e.scaleX);
+                         console.log(e.scaleY);*/
+                    },
+                    ready: function () {
+//                        cropOptions=$().cropper("getData");
+                        $(".ok").one("click", function () {
+                            var imageData = ctx.getImageData(cropOptions.x, cropOptions.y,
+                                cropOptions.width, cropOptions.height);
+                            cvs.width = cropOptions.width;
+                            cvs.height = cropOptions.height;
+                            console.log(cropOptions.x, cropOptions.y);
+                            ctx.putImageData(imageData, 0, 0);
+                            $("#credentialsImg").attr("src", cvs.toDataURL("image/png"));
+                            $(".canvas").css("display", "none");
+                        })
+                    }
+                });
+                console.log(width, height);
+            }
+        });
+        $("label[for='avatar']").on("click", function (e) {
+            $(".canvas").css("display", "block");
+        });
+        $(".confirm").on("click", ".cancel", function () {
+            $(".canvas").fadeOut();
+        })
+
+    })
+</script>
+</html>

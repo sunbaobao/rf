@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <script src="js/jquery.min.js"></script>
+    <title>Title</title>
+</head>
+<body>
+<header class="clearfix">
+    <div class="w-max ct">
+        <div class="logo fl">
+            <h1>日发金融</h1>
+        </div>
+        <div class="right fr">
+            <a href="#" class="">登录</a>
+            <a href="#" class="active">注册</a>
+        </div>
+    </div>
+</header>
+<div class="content">
+    <div class="w-max ct rel">
+        <div class="formW">
+            <form action="" method="post">
+                <div class="top  clearfix">
+                    <p class="fl">用户登录</p>
+                    <p class="fr">还没有账户？ <a href="#">立即注册</a></p>
+                </div>
+                <div class="formC">
+                    <div class="inputW"><input type="text" placeholder="客户号"> </div>
+                    <div class="inputW pwd"><input type="text" placeholder="资金密码"> </div>
+                    <div class="inputW Captcha"><input type="text" placeholder="请输入验证码"> <img src="images/CAPTCHA.jpg" alt="" class="pointer"> </div>
+                    <div class="check">
+                        <label for="protocol"> <input type="checkbox"  checked id="protocol" value="a" name="protocol">阅读并同意<a href="#">《风险协议》</a></label>
+                    </div>
+                    <div class="inputW submit">
+                        <input type="submit" value="立即登录">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+    <p class="tac">Copyright©2016日发国际金融有限公司. 沪ICP备12046937号.<br>
+        The content contained on this site is provided to users "AS IS" without any expressor implied warrantly.
+    </p>
+</footer>
+</body>
+<script>
+    $(function () {
+    $(".content").css("minHeight",window.innerHeight-110-88);
+    })
+</script>
+</html>
