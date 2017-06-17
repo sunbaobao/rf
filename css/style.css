@@ -189,3 +189,13 @@ input[type="text"],input[type="submit"],input[type="number"],input[type="tel"]{
 .w100{
     width: 100%;
 }
+.PVertical{
+    font-size: 0;
+}
+.PVertical:after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+}

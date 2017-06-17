@@ -217,8 +217,10 @@
             height: 42px;
             width: 60px;
             background: url("../images/group3.png") no-repeat center; }
-            .content .right .onlineWrap .onlineList .onlineItem .lv.super {
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv0 {
               background-image: url("../images/admin1.png"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv-1 {
+              background-image: url("../images/lv/-1.gif"); }
             .content .right .onlineWrap .onlineList .onlineItem .lv.lv1 {
               background-image: url("../images/lv/1.gif"); }
             .content .right .onlineWrap .onlineList .onlineItem .lv.lv2 {
@@ -229,6 +231,14 @@
               background-image: url("../images/lv/4.gif"); }
             .content .right .onlineWrap .onlineList .onlineItem .lv.lv5 {
               background-image: url("../images/lv/5.gif"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv6 {
+              background-image: url("../images/lv/6.gif"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv7 {
+              background-image: url("../images/lv/7.gif"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv8 {
+              background-image: url("../images/lv/8.gif"); }
+            .content .right .onlineWrap .onlineList .onlineItem .lv.lv9 {
+              background-image: url("../images/lv/9.gif"); }
           .content .right .onlineWrap .onlineList .onlineItem .option {
             width: 100%;
             text-align: left;
@@ -294,7 +304,7 @@
         overflow: hidden;
         height: 30px; }
         .content .center .centerC .notice .noticeRight marquee {
-          font-size: 14px;
+          font-size: 16px;
           color: #e90f0f;
           line-height: 30px;
           font-weight: bold; }
@@ -318,7 +328,8 @@
               color: #c00; }
             .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo {
               display: inline-block;
-              vertical-align: middle; }
+              vertical-align: middle;
+              position: relative; }
               .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo span {
                 font-size: 14px;
                 color: #ffffff;
@@ -334,6 +345,38 @@
               .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo .lv {
                 vertical-align: middle;
                 margin: 10px 5px; }
+              .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo .manage-menu {
+                display: none;
+                position: absolute;
+                padding: 5px;
+                border-radius: 5px;
+                background-color: #ffffff;
+                height: 30px;
+                z-index: 10; }
+                .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo .manage-menu:before {
+                  content: "";
+                  position: absolute;
+                  width: 0;
+                  height: 0;
+                  border-bottom: 7px solid #ffffff;
+                  border-right: 7px solid transparent;
+                  border-left: 7px solid transparent;
+                  top: -7px;
+                  left: 50%;
+                  margin-left: -7px; }
+                .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo .manage-menu div {
+                  font-size: 14px;
+                  color: #000;
+                  line-height: 20px;
+                  float: left;
+                  padding: 0 5px; }
+                  .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo .manage-menu div.line {
+                    height: 15px;
+                    width: 1px;
+                    background-color: #3c4156;
+                    float: left;
+                    padding: 0;
+                    margin-top: 2px; }
             .content .center .centerC .chatW .chatC .chatListW .onlineItem .messages {
               display: inline-block;
               vertical-align: middle;
@@ -345,6 +388,9 @@
                 line-height: 1.3;
                 font-size: 14px;
                 border-radius: 5px; }
+                .content .center .centerC .chatW .chatC .chatListW .onlineItem .messages p img {
+                  vertical-align: middle;
+                  margin: 0 3px; }
       .content .center .centerC .chatW .chatInput {
         width: 100%;
         border: 1px solid #3c4156;
@@ -353,36 +399,69 @@
         position: absolute;
         bottom: 0;
         left: 0; }
-        .content .center .centerC .chatW .chatInput .menu ul {
-          overflow: hidden; }
-          .content .center .centerC .chatW .chatInput .menu ul li {
-            float: left;
-            width: 66px;
-            height: 22px;
-            font-size: 0;
-            text-align: center;
-            background-color: #3c4353;
-            margin-right: 10px;
-            cursor: pointer; }
-            .content .center .centerC .chatW .chatInput .menu ul li.flag {
-              background-color: #e64300; }
-            .content .center .centerC .chatW .chatInput .menu ul li span {
-              display: inline-block;
-              width: 18px;
+        .content .center .centerC .chatW .chatInput .menu {
+          position: relative; }
+          .content .center .centerC .chatW .chatInput .menu ul {
+            overflow: hidden; }
+            .content .center .centerC .chatW .chatInput .menu ul li {
+              float: left;
+              width: 66px;
               height: 22px;
-              background: url("../images/listIcon_03.jpg") no-repeat center;
-              vertical-align: middle;
-              margin-right: 6px; }
-              .content .center .centerC .chatW .chatInput .menu ul li span.ListIcon2 {
-                background-image: url("../images/listIcon_05.jpg"); }
-              .content .center .centerC .chatW .chatInput .menu ul li span.ListIcon3 {
+              font-size: 0;
+              text-align: center;
+              background-color: #3c4353;
+              margin-right: 10px;
+              cursor: pointer;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none; }
+              .content .center .centerC .chatW .chatInput .menu ul li.scroll_switch.scroll_off .ListIcon {
+                background-image: url("../images/listIcon_02.jpg"); }
+              .content .center .centerC .chatW .chatInput .menu ul li.scroll_switch .ListIcon {
                 background-image: url("../images/listIcon_07.jpg"); }
-            .content .center .centerC .chatW .chatInput .menu ul li p {
-              display: inline-block;
-              color: #ffffff;
-              font-size: 12px;
-              line-height: 22px;
-              vertical-align: middle; }
+              .content .center .centerC .chatW .chatInput .menu ul li.flag {
+                background-color: #e64300; }
+              .content .center .centerC .chatW .chatInput .menu ul li span {
+                display: inline-block;
+                width: 18px;
+                height: 22px;
+                background: url("../images/listIcon_03.jpg") no-repeat center;
+                vertical-align: middle;
+                margin-right: 6px; }
+                .content .center .centerC .chatW .chatInput .menu ul li span.ListIcon2 {
+                  background-image: url("../images/listIcon_05.jpg"); }
+              .content .center .centerC .chatW .chatInput .menu ul li p {
+                display: inline-block;
+                color: #ffffff;
+                font-size: 12px;
+                line-height: 22px;
+                vertical-align: middle; }
+          .content .center .centerC .chatW .chatInput .menu .faceContent {
+            position: absolute;
+            overflow: hidden;
+            bottom: 37px;
+            left: -12px;
+            width: 342px;
+            padding: 10px;
+            border: 1px solid #D9D9D9;
+            background-color: #efefef;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); }
+            .content .center .centerC .chatW .chatInput .menu .faceContent .item {
+              cursor: pointer;
+              float: left;
+              border: 1px solid #e8e8e8;
+              height: 30px;
+              width: 30px;
+              overflow: hidden;
+              margin: -1px 0 0 -1px;
+              padding: 4px 2px;
+              text-align: center; }
+              .content .center .centerC .chatW .chatInput .menu .faceContent .item:hover {
+                position: relative;
+                z-index: 2;
+                border: 1px solid #eb7350;
+                background: #fff9ec; }
         .content .center .centerC .chatW .chatInput .chatInput_input {
           overflow: hidden;
           margin-top: 10px; }
@@ -403,7 +482,11 @@
             height: 70px;
             float: right;
             text-align: center;
-            cursor: pointer; }
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none; }
             .content .center .centerC .chatW .chatInput .chatInput_input .input_send:before {
               content: "";
               display: inline-block;
@@ -421,5 +504,157 @@
               font-size: 24px;
               display: inline-block;
               vertical-align: middle; }
+
+.login_menus {
+  position: fixed;
+  display: none;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0; }
+  .login_menus .menus {
+    width: 600px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    margin-top: -200px;
+    left: 50%;
+    margin-left: -300px;
+    background-color: #ffffff; }
+    .login_menus .menus .menus_top {
+      height: 60px; }
+      .login_menus .menus .menus_top > div {
+        float: left;
+        width: 300px;
+        height: 60px;
+        background-color: #efc813;
+        position: relative;
+        text-align: center;
+        font-size: 16px;
+        color: #ffffff;
+        line-height: 60px;
+        cursor: pointer; }
+        .login_menus .menus .menus_top > div:hover {
+          background-color: #ffdc15; }
+        .login_menus .menus .menus_top > div.active {
+          background-color: #c8191e; }
+          .login_menus .menus .menus_top > div.active:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 12px solid #c8191e;
+            border-right: 12px solid transparent;
+            border-left: 12px solid transparent;
+            position: absolute;
+            left: 138px;
+            bottom: -12px; }
+          .login_menus .menus .menus_top > div.active:hover {
+            background-color: #dc1c21; }
+    .login_menus .menus .menus_content {
+      height: 340px;
+      position: relative; }
+      .login_menus .menus .menus_content .login_option {
+        text-align: center;
+        margin-top: 40px; }
+        .login_menus .menus .menus_content .login_option a {
+          display: inline-block;
+          font-size: 14px;
+          color: #494848;
+          line-height: 40px;
+          vertical-align: middle; }
+          .login_menus .menus .menus_content .login_option a:hover {
+            color: #c8191e; }
+        .login_menus .menus .menus_content .login_option span.line {
+          display: inline-block;
+          width: 2px;
+          height: 15px;
+          vertical-align: middle;
+          background-color: #888787;
+          margin: 0 9px; }
+      .login_menus .menus .menus_content .quickly {
+        padding-top: 58px;
+        font-size: 0;
+        text-align: center;
+        display: none; }
+        .login_menus .menus .menus_content .quickly .qq, .login_menus .menus .menus_content .quickly .wx {
+          display: inline-block;
+          width: 130px;
+          height: 130px;
+          border-radius: 130px;
+          margin: 0 35px;
+          box-shadow: 0 0 10px #ccc;
+          font-size: 14px;
+          color: #494848;
+          line-height: 40px;
+          -webkit-transition: all 0.4s;
+          -moz-transition: all 0.4s;
+          -ms-transition: all 0.4s;
+          -o-transition: all 0.4s;
+          transition: all 0.4s; }
+          .login_menus .menus .menus_content .quickly .qq:hover, .login_menus .menus .menus_content .quickly .wx:hover {
+            box-shadow: 0 0 15px #aaa; }
+          .login_menus .menus .menus_content .quickly .qq a, .login_menus .menus .menus_content .quickly .wx a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 100%; }
+        .login_menus .menus .menus_content .quickly .qq a {
+          background: url("../images/qqlogin.png") no-repeat center; }
+        .login_menus .menus .menus_content .quickly .wx a {
+          background: url("../images/wxlogin.png") no-repeat center; }
+      .login_menus .menus .menus_content .inputW {
+        display: inline-block;
+        margin-bottom: 18px; }
+        .login_menus .menus .menus_content .inputW span {
+          display: inline-block;
+          width: 70px;
+          font-size: 14px;
+          color: #424242;
+          line-height: 38px;
+          vertical-align: middle;
+          text-align: right;
+          margin-right: 15px; }
+        .login_menus .menus .menus_content .inputW input {
+          width: 286px;
+          height: 38px;
+          border: 1px solid #bfbfbf;
+          border-radius: 5px;
+          vertical-align: middle;
+          outline: none;
+          font-size: 14px;
+          text-indent: 1em; }
+      .login_menus .menus .menus_content .login_submit, .login_menus .menus .menus_content .register .register_submit {
+        display: block;
+        width: 194px;
+        height: 44px;
+        border-radius: 5px;
+        color: #ffffff;
+        background-color: #c8191e;
+        line-height: 44px;
+        font-size: 14px;
+        margin: 30px auto; }
+        .login_menus .menus .menus_content .login_submit:hover, .login_menus .menus .menus_content .register .register_submit:hover {
+          background-color: #dc1c21; }
+      .login_menus .menus .menus_content .input_login {
+        font-size: 0;
+        text-align: center;
+        width: 100%;
+        height: 340px; }
+        .login_menus .menus .menus_content .input_login:after {
+          content: "";
+          display: inline-block;
+          height: 100%;
+          width: 0;
+          vertical-align: middle; }
+        .login_menus .menus .menus_content .input_login .login_option {
+          margin-top: -10px; }
+      .login_menus .menus .menus_content .register {
+        height: 340px;
+        font-size: 0; }
+        .login_menus .menus .menus_content .register .register_submit {
+          text-align: center; }
 
 /*# sourceMappingURL=live.css.map */

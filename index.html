@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
-
+    <link rel="stylesheet" href="layui/css/layui.css">
     <script src="js/jquery.min.js"></script>
     <title>首页</title>
 </head>
@@ -1221,80 +1221,90 @@
 </footer>
 </body>
 <script>
-    $(function () {
-        (function () {
-            var l = $(".banItem").length;
-            var $list = $(".banItem");
-            var index = l - 1;
-            function go() {
-                $list.stop();
-                $list.eq(index).fadeOut(800);
-                if (index >= l - 1) {
-                    index = 0;
-                } else {
-                    index++;
-                }
-                console.log(index, l);
-                $list.eq(index).fadeIn(800);
-            }
-            var t = setInterval(go, 3000);
-            $(".banW").on({
-                mouseenter: function () {
-                    clearInterval(t);
-                },
-                mouseleave: function () {
-                    t = setInterval(go, 3000);
-                }
-            });
-            $(".banW .arr").on("click", "span", function () {
-                if ($(this).hasClass("pre")) {
-                    if (index <= 0) {
-                        index=l-2;
-                    }else {
-                        index -= 2;
-                    }
-                    go();
-                } else {
-                    go();
-                }
-            })
-        })();
-        var $tabContent = $(".tabContent");
-        $(".tabNav").on("mouseenter", ".item", function () {
-            $(this).addClass("active").siblings().removeClass("active");
-            $tabContent.children().eq($(this).index()).fadeIn(800).siblings().fadeOut(800)
-        });
-        +function () {
-            var $l = $(".lecturerLeft");
-            var $list = $(".lecturerRight .list");
-            var index = 0;
-            var h = $list.children().outerHeight();
-            var l = $list.children().length;
-            console.log(h, l);
-            function go() {
-                if (index >= l - 1) {
-                    index = 0;
-                } else {
-                    index++;
-                }
-                $list.css({
-                    top: -index * h
-                });
-                $l.children().eq(index).addClass("active").siblings().removeClass("active")
-            }
+    /*layui.use(['layim', 'flow', "laytpl", "element"], function () {
+        var layim = layui.layim
+            , layer = layui.layer
+            , laytpl = layui.laytpl
+            , $ = layui.jquery
+            , ele = layui.element()
+            , flow = layui.flow;});*/
+        $(function () {
+            (function () {
+                var l = $(".banItem").length;
+                var $list = $(".banItem");
+                var index = l - 1;
 
-            var t = setInterval(go, 3000);
-            $l.on("mouseenter", function () {
-                clearInterval(t);
-            });
-            $l.on("mouseleave", function () {
+                function go() {
+                    $list.stop();
+                    $list.eq(index).fadeOut(800);
+                    if (index >= l - 1) {
+                        index = 0;
+                    } else {
+                        index++;
+                    }
+                    console.log(index, l);
+                    $list.eq(index).fadeIn(800);
+                }
+
                 var t = setInterval(go, 3000);
-            });
-            $l.on("mouseenter", ".item", function () {
+                $(".banW").on({
+                    mouseenter: function () {
+                        clearInterval(t);
+                    },
+                    mouseleave: function () {
+                        t = setInterval(go, 3000);
+                    }
+                });
+                $(".banW .arr").on("click", "span", function () {
+                    if ($(this).hasClass("pre")) {
+                        if (index <= 0) {
+                            index = l - 2;
+                        } else {
+                            index -= 2;
+                        }
+                        go();
+                    } else {
+                        go();
+                    }
+                })
+            })();
+            var $tabContent = $(".tabContent");
+            $(".tabNav").on("mouseenter", ".item", function () {
                 $(this).addClass("active").siblings().removeClass("active");
-                $list.css("top", -$(this).index() * h);
-            })
-        }()
-    })
+                $tabContent.children().eq($(this).index()).fadeIn(800).siblings().fadeOut(800)
+            });
+            +function () {
+                var $l = $(".lecturerLeft");
+                var $list = $(".lecturerRight .list");
+                var index = 0;
+                var h = $list.children().outerHeight();
+                var l = $list.children().length;
+                console.log(h, l);
+                function go() {
+                    if (index >= l - 1) {
+                        index = 0;
+                    } else {
+                        index++;
+                    }
+                    $list.css({
+                        top: -index * h
+                    });
+                    $l.children().eq(index).addClass("active").siblings().removeClass("active")
+                }
+
+                var t = setInterval(go, 3000);
+                $l.on("mouseenter", function () {
+                    clearInterval(t);
+                });
+                $l.on("mouseleave", function () {
+                    var t = setInterval(go, 3000);
+                });
+                $l.on("mouseenter", ".item", function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+                    $list.css("top", -$(this).index() * h);
+                })
+            }()
+        });
+
 </script>
 </html>
