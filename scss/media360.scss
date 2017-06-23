@@ -1,0 +1,257 @@
+@media screen and (max-width: 640px) {
+  body {
+    min-width: initial;
+  }
+  header {
+    height: 82px;
+  }
+  header .logo h1 {
+    height: 80px;
+    background-size: 100%;
+    width: 177px;
+  }
+  header .right:after {
+    height: 80px;
+  }
+  header .right a {
+    width: 50px;
+    margin-right: 10px;
+  }
+  .title {
+    padding-top: 20px;
+  }
+  .content .about h3 {
+    margin-top: 20px;
+  }
+  .content .about .aboutText {
+    padding: 0 10px;
+  }
+  .content .variety {
+    height: 977px;
+  }
+  .content .advantage .listW {
+    padding-top: 20px;
+  }
+  .content .lecturer .lecturerW {
+    padding-top: 20px;
+  }
+  .w-max {
+    width: auto;
+  }
+  .content .banW {
+    height: 200px;
+
+  }
+  .content .banW .banItem img {
+    height: 200px;
+  }
+  .content .variety .tabNav .item {
+    margin-bottom: 10px;
+  }
+  .content .variety .tabContent {
+    width: 100%;
+  }
+  .content .advantage .listW .item {
+    float: none;
+    margin: 0 auto;
+  }
+  .content .lecturer .lecturerW .lecturerLeft {
+    display: none;
+  }
+  .content .lecturer .lecturerW .lecturerRight {
+    width: 100%;
+    margin-right: 0;
+  }
+  .content .lecturer .lecturerW .lecturerRight .list .item {
+    padding: 20px 10px;
+  }
+  .content .lecturer .lecturerW .lecturerRight .list .item p {
+    padding: 0 5px;
+  }
+  .join img {
+    width: 100%;
+  }
+  .content .live .liveDes .des {
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+
+  }
+  .content .live .liveDes .hand {
+    float: none;
+    text-align: center;
+  }
+  .content .live {
+    height: auto;
+  }
+  .content .contact .w-max .left {
+    width: 100%;
+  }
+  .content .contact {
+    height: auto;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px 10px;
+  }
+  .content .contact .w-max .center {
+    width: 100%;
+    padding: 10px 0;
+  }
+  .content .contact .w-max .right {
+    width: 100%;
+    padding: 10px 0;
+
+  }
+  footer {
+    padding: 20px 0;
+    height: auto;
+  }
+  .content .join {
+    height: auto;
+  }
+  .content .formW {
+    width: 100%;
+    top: 0;
+    right: 0;
+
+  }
+  .content .formW .formC {
+    padding: 0 5px;
+  }
+  .content .formW .formC .inputW.Captcha input {
+    width: 60%;
+    margin-right: 0;
+  }
+  .content .formW .formC .inputW.Captcha img {
+    width: 35%;
+  }
+  .login_content {
+    height: 434px;
+  }
+  .content .formW .formC .inputW.Captcha a {
+    width: 35%;
+  }
+  .loginContent .left {
+    transition: all 0.4s;
+
+    &.off {
+      left: -177px;
+      &:after{
+        display: none;
+        //opacity: 0;
+      }
+    }
+     .nav{
+      content: "";
+      display: inline-block;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      background: url("../images/nav.png") no-repeat center;
+      background-size: 70%;
+      background-color: rgba(0,0,0,0.4);
+      border-radius: 40px;
+
+    }
+    &.duration{
+      transition: all 0.4s;
+      left: -177px;
+      &:after{
+        //display: none;
+        transition: all 0.4s;
+        opacity: 0;
+      }
+    }
+    //display: none;
+    position: fixed;
+    top: 0;
+    left: -1px;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    z-index: 1000;
+    overflow-y: visible;
+    overflow-x: visible;
+    p {
+      z-index: 1001;
+    }
+    &:after {
+      content: "";
+      display: block;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.4);
+      position: fixed;
+      top: 0;
+      left: 0;
+      opacity: 1;
+    }
+    ul {
+      border-top: 1px solid #e5e5e5;
+      border-left: none;
+      border-bottom: none;
+      border-right: none;
+      position: absolute;
+      top: 0;
+      padding-top: 50px;
+      width: 173px;
+      height: 100vh;
+      z-index: 1000;
+      overflow: scroll;
+      pointer-events: auto;
+    }
+  }
+
+  header .right.login a {
+    width: 64px;
+  }
+  .loginContent .right .rightLeft {
+    float: none;
+    margin: 20px auto;
+  }
+  .loginContent .tips {
+    width: 100%;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    margin-left: 0;
+  }
+  .loginContent .right {
+    width: 100%;
+    padding: 20px 10px;
+  }
+  .loginContent .page {
+    width: 100%;
+    margin-left: 0;
+    padding-bottom: 20px;
+  }
+  .loginContent .right .bottom {
+    padding: 0;
+    & > * {
+      margin-bottom: 10px;
+    }
+  }
+  .loginContent .right .rightRight .inputW span {
+    float: none;
+  }
+  .loginContent .right .listC {
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+  .loginContent {
+    overflow: hidden;
+  }
+  .loginContent .right .rightRight {
+    min-width: initial;
+  }
+  .loginContent .right .listC .listRow div {
+    line-height: 1.5;
+    padding: 10px 0;
+    width: 20%;
+  }
+}

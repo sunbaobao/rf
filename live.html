@@ -11,11 +11,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/live.css">
+    <link rel="stylesheet" href="layui/css/layui.css">
     <script src="js/jquery.min.js"></script>
     <title>Title</title>
 </head>
 <body>
-<div class="top clearfix ovh">
+<div class="top clearfix ">
     <h1 class="fl">美林资管</h1>
     <ul class="fl">
         <li><a href="#">
@@ -27,7 +28,7 @@
         </li>
         <i class="hr"></i>
         <li><a href="#">
-            <div class="dib vertical tac">
+            <div class="dib vertical tac saveas">
                 <span class="imgW img2"></span>
                 <p>保存到桌面</p>
             </div>
@@ -58,15 +59,25 @@
         </a>
         </li>
         <i class="hr"></i>
-        <li><a href="#">
-            <div class="dib vertical tac">
-                <span class="imgW img6"></span>
-                <p>在线咨询</p>
+        <li>
+            <a href="javascript:;">
+                <div class="dib vertical tac qqChat">
+                    <span class="imgW img6"></span>
+                    <p>在线咨询</p>
+                </div>
+            </a>
+            <div class="qqList">
+                <div class="qqItem">
+                    <a href="#"></a>
+                </div>
+                <div class="qqItem">
+                    <a href="#"></a>
+                </div>
             </div>
-        </a>
         </li>
     </ul>
     <div class="fr login">
+        <p><a href="#">游客123</a></p>
         <a href="javascript:;" class="l">登陆</a>
         <a href="javascript:;">注册</a>
     </div>
@@ -278,6 +289,9 @@
                                     <span class="time">13:36</span>
                                     <img src="images/lv/1.gif" alt="" class="lv lv1">
                                     <span class="name">哈哈哈</span>
+                                    <span class="dui">对</span>
+                                    <img src="images/lv/1.gif" alt="" class="lv lv1">
+                                    <span class="name">哈哈哈</span>
                                     <div class="manage-menu ">
                                         <div class="at pointer">@Ta</div>
                                         <div class="line"></div>
@@ -376,6 +390,9 @@
                                     <p>就十多个红烧解放碑就就会放大镜好很好</p>
                                 </div>
                             </div>
+                            <div class="onlineItem">
+                                <div class="system">系统消息</div>
+                            </div>
                         </div>
                     </div>
                     <div class="scroll_bar">
@@ -397,7 +414,7 @@
                             <!--<div class="item"><img src="images/face/1.gif" alt="哼"></div>-->
                         </div>
                     </div>
-                    <div class="chatInput_input">
+                    <div class="chatInput_input" data-sendType="comment" data-at="username">
                         <div class="input_send">
                             <p>发送</p>
                         </div>
@@ -467,6 +484,7 @@
 </div>
 </body>
 <script src="js/myChat.js"></script>
+<script src="layui/layui.js"></script>
 <script>
     $(function () {
         //自适应高度
@@ -500,7 +518,7 @@
                 $c.eq(1).css("display", "block").siblings().css("display", "none");
             }
         });
-        $(".top .login").on("click", function (e) {
+        $(".top .login>a").on("click", function (e) {
             $(".login_menus").css("display", "block");
             if (!$(e.target).hasClass("l")) {
                 $(".menus_top .register")[0].click();
@@ -519,6 +537,13 @@
             $(".menus_top .register")[0].click();
         });
         //自定义滚动条处理
+        $(".saveas").on("click", function () {
+            console.log(1);
+            document.execCommand('SaveAs', true, 'mycodes.html');
+            $(document).trigger("click", function () {
+
+            })
+        });
         myChat.initScrollBar(".onlineList");
         myChat.initScrollBar(".chatListW");
 //        console.log(contH,h);
@@ -551,6 +576,10 @@
         });
 //        lv -1到9 -1是讲师 0是超管 123456789等级用户
         myChat.addMsg(data);
+        myChat.addMsg({
+            type: "system",
+            messages: "系统提示消息"
+        });
         $(window).on("sendMessages", function (e, data) {
 //            console.log(data);
         });
@@ -561,6 +590,65 @@
             lv: "0"
         };
         myChat.online(user);
+    })
+</script>
+<script>
+    layui.use(["layim", "jquery", "layer"], function () {
+        var layim = layui.layim
+            , layer = layui.layer
+            , laytpl = layui.laytpl
+            , $ = layui.jquery
+            , ele = layui.element
+            , flow = layui.flow;
+       var l1= layim.config({
+            brief: true,
+            init: {
+                mine: {
+                    "username": "纸飞机" //我的昵称
+                    , "id": "100000" //我的ID
+                    , "status": "online" //在线状态 online：在线、hide：隐身
+                    , "sign": "在深邃的编码世界，做一枚轻盈的纸飞机" //我的签名
+                    , "avatar": "images/avatar.png" //我的头像
+                }
+                , friend: []
+                , group: []
+            }
+        }).chat({
+            name: '客服姐姐'
+            , type: 'friend'
+            , avatar: 'http://tp1.sinaimg.cn/5619439268/180/40030060651/1'
+            , id: -2
+        });
+        var autoReplay = [
+            '您好，我现在有事不在，一会再和您联系。',
+            '你没发错吧？face[微笑] ',
+            '洗澡中，请勿打扰，偷窥请购票，个体四十，团体八折，订票电话：一般人我不告诉他！face[哈哈] ',
+            '你好，我是主人的美女秘书，有什么事就跟我说吧，等他回来我会转告他的。face[心] face[心] face[心] ',
+            'face[威武] face[威武] face[威武] face[威武] ',
+            '<（@￣︶￣@）>',
+            '你要和我说话？你真的要和我说话？你确定自己想说吗？你一定非说不可吗？那你说吧，这是自动回复。',
+            'face[黑线]  你慢慢说，别急……',
+            '(*^__^*) face[嘻嘻] ，是贤心吗？'
+        ];
+       layim.on("sendMessage",function (data) {
+            console.log(data);
+           var To = data.to;
+           if (To.type === 'friend') {
+               layim.setChatStatus('<span style="color:#FF5722;">对方正在输入。。。</span>');
+               setTimeout(function () {
+                   var obj = {};
+                       obj = {
+                           username: To.name
+                           , avatar: To.avatar
+                           , id: To.id
+                           , type: To.type
+                           , content: autoReplay[Math.random() * 9 | 0]
+                       };
+                       layim.setChatStatus('<span style="color:#FF5722;">在线</span>');
+                   layim.getMessage(obj);
+               }, 1000);
+           }
+        });
     })
 </script>
 </html>

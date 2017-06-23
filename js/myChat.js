@@ -25,6 +25,7 @@
             this.v = v;
             var that = this;
             var $chatW = $(".chatListW .itemW");
+            var $textArea = $(".meg_input textarea");
             $(".meg_input textarea").focus(function (e) {
                 $(".meg_input textarea").on("keydown.textA", function (e) {
                     if (e.keyCode === 13) {
@@ -37,17 +38,39 @@
             });
             $(".chatInput_input .input_send").on("click", function () {
                 var value = $.trim($(this).next().children().val());
-
+                var type = $(this).next().children().data("sendType") || "";
                 if (value === "") {
-
                     return;
                 }
+                var data = {};
+                if (type === "to") {
+                    var toName = $textArea.data("toName");
+                    var toId = $textArea.data("toId");
+                    var toLv = $textArea.data("toLv");
+                    var reg = new RegExp("@" + toName, "g");
+                    value = value.replace("@" + toName, "");
+
+                    data = {
+                        type: "to",
+                        user: cache.user,
+                        to: {
+                            username: toName,
+                            id: toId,
+                            lv: toLv
+                        },
+                        messages: value
+                    };
+                    $textArea.data("sendType", "comment");
+                    // console.log(toName,value,reg.test(value));
+                } else {
+                    data = {
+                        type: "comment",
+                        user: cache.user,
+                        messages: value
+                    };
+                }
                 $(this).next().children().val("");
-                var data = {
-                    type: "comment",
-                    user: cache.user,
-                    messages: value
-                };
+
                 that.addMsg(data);
                 // console.log($(this).next().children().val());
                 $(window).trigger("sendMessages", data)
@@ -60,7 +83,7 @@
                 $(this).toggleClass("scroll_off");
                 scroll_switch = !scroll_switch;
             });
-            $(".userInfo").on("click", function () {
+            $(".chatListW").on("click", ".userInfo", function () {
                 $(this).parent().siblings().find(".manage-menu").css("display", "none");
                 var $menu = $(this).children(".manage-menu");
                 $menu.css("display", "block");
@@ -68,6 +91,42 @@
                     $menu.css("display", "none");
                 });
                 return false;
+            });
+            $(".chatListW").on("click", ".at", function () {
+                //    @处理
+                var toName = $(this).parents(".userInfo").find(".name").text();
+                var toId = $(this).parents(".userInfo").data("uid");
+                var toLv = $(this).parents(".userInfo").data("ulv");
+                console.log(typeof toId,cache.user.id);
+                if (cache.user.id==toId){
+                    console.log(toId,cache.user.id);
+                    $textArea.data("sendType", "comment");
+                }else {
+                    $textArea.data("sendType", "to");
+                }
+                console.log(toName);
+                insertMeg($textArea[0], "@" + toName);
+                $textArea.data("toName", toName);
+                $textArea.data("toId", toId);
+                $textArea.data("toLv", toLv);
+            });
+            $(".onlineList").on("click", ".at", function () {
+                //    @处理
+                var toName = $(this).parents(".onlineItem").data("username");
+                var toId = $(this).parents(".onlineItem").data("uid");
+                var toLv = $(this).parents(".onlineItem").data("ulv");
+                console.log(typeof toId,cache.user.id);
+                if (cache.user.id==toId){
+                    console.log(toId,cache.user.id);
+                    $textArea.data("sendType", "comment");
+                }else {
+                    $textArea.data("sendType", "to");
+                }
+                console.log(toName);
+                insertMeg($textArea[0], "@" + toName);
+                $textArea.data("toName", toName);
+                $textArea.data("toId", toId);
+                $textArea.data("toLv", toLv);
             });
             // $(document)
             return this;
@@ -154,10 +213,15 @@
             for (var key in onlineUser) {
                 tem += '<div class="onlineItem" data-uid="' + onlineUser[key].id +
                     '" data-username="' + onlineUser[key].username +
+                    '" data-ulv="' + onlineUser[key].lv +
                     '"><div class="onlineIteLeft fl"><span class="auto"  style="background-image: url(' + onlineUser[key].avatar +
                     ')"></span><p>' + onlineUser[key].username +
                     '</p></div><div class="lv  fr lv' + onlineUser[key].lv +
-                    '"></div> <div class="option"><p class="shield">屏蔽</p><p class="at">@Ta</p>';
+                    '" style="';
+                if (onlineUser[key].lv === "") {
+                    tem += "display:none";
+                }
+                tem += '"></div> <div class="option"><p class="shield">屏蔽</p><p class="at">@Ta</p>';
                 if (user.lv === "0") {
                     tem += '<p class="pChat">私聊</p>'
                 }
@@ -252,12 +316,17 @@
                 if (option.user.lv === "0") {
                     chatTem += ' super'
                 }
-                chatTem += '"><div class="userInfo"><span class="time">' + myDate(option.date) + '</span>';
+                chatTem += '"><div class="userInfo" data-uid="' + option.user.id + '" data-ulv="' + option.user.lv +
+                    '"><span class="time">' + myDate(option.date) + '</span>';
                 if (option.user.lv !== "") {
                     chatTem += '<img src="' + cache.dir + 'images/lv/' + option.user.lv + '.gif" alt="" class="lv lv1"> ';
                 }
                 chatTem += '<span class="name">' + option.user.username + '</span>' +
-                    '</div><div class="messages">' +
+                    ' <div class="manage-menu "> <div class="at pointer">@Ta</div> <div class="line"></div> <div class="shield pointer">屏蔽</div> ';
+                if (option.user.lv === "0") {
+                    chatTem += '<div class="line"></div> <div class="shield pointer">私聊</div>';
+                }
+                chatTem += '</div></div><div class="messages">' +
                     '<p>' + this.content(option.messages) + '</p>' +
                     '</div></div>';
                 $(".chatListW .itemW").append(chatTem);
@@ -269,10 +338,44 @@
                 // console.log(chatTem);
             }
             if (option.type === "to") {
+                var chatTem = '<div class="onlineItem';
+                if (option.user.lv === "0") {
+                    chatTem += ' super'
+                }
+                chatTem += '"><div class="userInfo" data-uid="' + option.user.id + '"data-ulv="' + option.user.lv +
+                    '"><span class="time">' + myDate(option.date) + '</span>';
+                if (option.user.lv !== "") {
+                    chatTem += '<img src="' + cache.dir + 'images/lv/' + option.user.lv + '.gif" alt="" class="lv lv1"> ';
+                }
+                chatTem += '<span class="name">' + option.user.username + '</span>';
+                if (option.to.lv === "") {
+                    chatTem +='<span class="dui">对</span><span class="name">' +option.to.username+
+                        '</span>'
+                }else {
+                    chatTem +='<span class="dui">对</span> <img src="images/lv/' +option.to.lv+
+                        '.gif" alt="" class="lv lv1"> <span class="name">' +option.to.username+
+                        '</span>';
+                }
+                chatTem += ' <div class="manage-menu "> <div class="at pointer">@Ta</div> <div class="line"></div> <div class="shield pointer">屏蔽</div> ';
+                if (option.user.lv === "0") {
+                    chatTem += '<div class="line"></div> <div class="shield pointer">私聊</div>';
+                }
+                chatTem += '</div></div><div class="messages">' +
+                    '<p>' + this.content(option.messages) + '</p>' +
+                    '</div></div>';
+                $(".chatListW .itemW").append(chatTem);
+                $(window).trigger("resize");
+                if (scroll_switch) {
+                    scrollToBottom(".chatListW");
+                }
 
             }
             if (option.type === "system") {
-
+                $(".chatListW .itemW").append('  <div class="onlineItem"><div class="system">'+option.messages+'</div></div>');
+                $(window).trigger("resize");
+                if (scroll_switch) {
+                    scrollToBottom(".chatListW");
+                }
             }
         };
         myChat.prototype.init = function (data) {
@@ -284,7 +387,7 @@
             };
             content = (content || '').replace(/&(?!#?[a-zA-Z0-9]+;)/g, '&amp;')
                 .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/'/g, '&#39;').replace(/"/g, '&quot;') //XSS
-                .replace(/@(\S+)(\s+?|$)/g, '@<a href="javascript:;">$1</a>$2') //转义@
+               /* .replace(/@(\S+)(\s+?|$)/g, '@<a href="javascript:;">$1</a>$2') //转义@*/
 
                 .replace(/face\[([^\s\[\]]+?)\]/g, function (face) {  //转义表情
                     var alt = face.replace(/^face/g, '');
@@ -321,7 +424,9 @@
                 }
                 scro_barH = (ListH * ListH) / relH;//滚动条的高度
                 $scrollBar.css("height", scro_barH);
-                scrollH = $scroll.height()
+                scrollH = $scroll.height();
+                var ratio = $(node).scrollTop() / relH;
+                $scrollBar.css("top", ListH * ratio + pT);
             });
             $(window).trigger("resize");
             $(node).on("scroll", function (e) {

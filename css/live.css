@@ -15,16 +15,20 @@
     float: left;
     margin-top: 14px; }
   .top ul > li {
-    float: left; }
+    float: left;
+    position: relative; }
     .top ul > li:hover, .top ul > li.active {
       background-color: #2c3147; }
+      .top ul > li:hover .qqList, .top ul > li.active .qqList {
+        display: block; }
     .top ul > li a {
       display: block;
       width: 144px;
       height: 80px;
       color: #ffffff;
       font-size: 0;
-      text-align: center; }
+      text-align: center;
+      position: relative; }
       .top ul > li a:after {
         content: "";
         display: inline-block;
@@ -53,9 +57,23 @@
         color: #ffffff;
         line-height: 30px;
         vertical-align: middle; }
+    .top ul > li .qqList {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 144px;
+      background-color: #2c3147;
+      z-index: 2000;
+      padding-bottom: 20px;
+      display: none; }
+      .top ul > li .qqList .qqItem a {
+        display: block;
+        height: 40px;
+        width: 100%;
+        background: url("../images/qqchat.png") no-repeat center; }
   .top .login {
     padding-top: 25px; }
-    .top .login a {
+    .top .login > a {
       display: block;
       float: left;
       width: 72px;
@@ -71,13 +89,21 @@
       background-color: #275fb4;
       text-align: center;
       margin: 0 11px; }
-      .top .login a.l {
+      .top .login > a.l {
         background-color: #c8191e; }
-      .top .login a.l:hover {
+      .top .login > a.l:hover {
         background-color: #f01e24; }
-      .top .login a:hover {
+      .top .login > a:hover {
         background-color: #2f72d8;
         transform: translateY(-10px); }
+    .top .login p {
+      font-size: 14px;
+      color: #ffffff;
+      float: left; }
+      .top .login p a {
+        display: block;
+        color: #fff;
+        line-height: 32px; }
 
 .content {
   position: absolute;
@@ -321,6 +347,12 @@
           height: 100%; }
           .content .center .centerC .chatW .chatC .chatListW .onlineItem {
             font-size: 0; }
+            .content .center .centerC .chatW .chatC .chatListW .onlineItem .system {
+              text-align: center;
+              font-size: 12px;
+              color: #dddddd;
+              line-height: 1.5;
+              margin: 10px 0px; }
             .content .center .centerC .chatW .chatC .chatListW .onlineItem.super .userInfo .name {
               color: #ff0000;
               background-color: #ffff00; }
@@ -342,6 +374,15 @@
                   margin: 10px 0;
                   padding: 0 5px;
                   border-radius: 4px; }
+                .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo span.dui {
+                  background-color: #d71a29;
+                  width: 22px;
+                  height: 20px;
+                  font-size: 12px;
+                  line-height: 20px;
+                  text-align: center;
+                  vertical-align: middle;
+                  border-radius: 5px; }
               .content .center .centerC .chatW .chatC .chatListW .onlineItem .userInfo .lv {
                 vertical-align: middle;
                 margin: 10px 5px; }

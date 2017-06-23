@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Apple devices fullscreen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Apple devices fullscreen -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/media360.css">
     <script src="js/jquery.min.js"></script>
     <title>用户中心</title>
 </head>
@@ -33,6 +34,26 @@
             <ul>
                 <li class="active"><a href="#">账户信息</a></li>
                 <li><a href="#">充值记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
+                <li><a href="#">提现记录</a></li>
                 <li><a href="#">提现记录</a></li>
             </ul>
         </div>
@@ -94,9 +115,9 @@
                         <div class="w15">状态</div>
                     </div>
                     <div class="listRow clearfix ">
-                        <div class="w15">2017-04-06 14:16 </div>
+                        <div class="w15">2017-04-06 14:16</div>
                         <div class="w10">董政磊</div>
-                        <div class="w15">$100.00 </div>
+                        <div class="w15">$100.00</div>
                         <div class="w25">20170406141622619974</div>
                         <div class="w15 success"><span>充值成功</span></div>
                     </div>
@@ -118,6 +139,21 @@
     $(function () {
         $(".content").css("minHeight", window.innerHeight - 110 - 88);
         $(".loginContent").css("minHeight", window.innerHeight - 110 - 88);
-    })
+    });
+    $(function () {
+        if (window.outerWidth < 640) {
+            $(".loginContent .left").addClass("off");
+            $(".loginContent .left").append("<span class='nav'></span>");
+            $(".loginContent .left").on("click", ".nav", function () {
+                $(this).parents(".left").removeClass("off");
+            });
+            $(".loginContent .left").on("click", function (e) {
+                console.log(1);
+                if ($(e.target).parents("ul").length === 0 && !$(e.target).is("p")&&!$(e.target).is("span")) {
+                    $(this).addClass("off");
+                }
+            })
+        }
+    });
 </script>
 </html>

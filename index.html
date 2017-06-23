@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/media360.css">
     <script src="js/jquery.min.js"></script>
     <title>首页</title>
 </head>
@@ -1242,7 +1243,7 @@
                     } else {
                         index++;
                     }
-                    console.log(index, l);
+//                    console.log(index, l);
                     $list.eq(index).fadeIn(800);
                 }
 
@@ -1266,7 +1267,7 @@
                     } else {
                         go();
                     }
-                })
+                });
             })();
             var $tabContent = $(".tabContent");
             $(".tabNav").on("mouseenter", ".item", function () {
@@ -1292,12 +1293,12 @@
                     $l.children().eq(index).addClass("active").siblings().removeClass("active")
                 }
 
-                var t = setInterval(go, 3000);
+                var t = setInterval(go, 5000);
                 $l.on("mouseenter", function () {
                     clearInterval(t);
                 });
                 $l.on("mouseleave", function () {
-                    var t = setInterval(go, 3000);
+                    var t = setInterval(go,5000);
                 });
                 $l.on("mouseenter", ".item", function () {
                     $(this).addClass("active").siblings().removeClass("active");
